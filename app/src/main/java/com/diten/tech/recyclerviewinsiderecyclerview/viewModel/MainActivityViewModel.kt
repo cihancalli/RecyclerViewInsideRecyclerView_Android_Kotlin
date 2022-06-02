@@ -18,7 +18,7 @@ class MainActivityViewModel : ViewModel() {
         return loclist
     }
     fun loadData(context: Context){
-        val json = context.resources.openRawResource(R.raw.data).bufferedReader().use { it.readLine() }
+        val json = context.resources.openRawResource(R.raw.data).bufferedReader().use { it.readText() }
         val list = Gson().fromJson<LocationList>(json,LocationList::class.java)
         loclist.postValue(list)
     }
